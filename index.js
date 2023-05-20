@@ -60,15 +60,7 @@ async function run() {
             const result = await cursor.limit(limit).toArray();
             res.send(result)
         })
-        app.get('/filterdToy', async (req, res) => {
-            const search = req.query.search;
-            const filter = parseInt(req.query.filter) || 1;
-            // console.log(filter);
-            const query = { email: search }
-            const cursor = toyCollection.find(query).sort({ price: filter });
-            const result = await cursor.toArray();
-            res.send(result)
-        })
+        
 
         app.delete("/toy/:id", async (req, res) => {
             const id = req.params.id;
